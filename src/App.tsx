@@ -18,7 +18,7 @@ const App: React.FC = () => {
         {/*>*/}
         {/*  Learn React*/}
         {/*</a>*/}
-        Quieres llevar tu vida a otro nivel?
+        Quieres llevar tu vida a otro nivel ?
         Este es tu lugar!
         Esperalo!
       </header>

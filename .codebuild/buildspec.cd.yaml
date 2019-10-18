@@ -9,7 +9,11 @@ phases:
       - npm install
   build:
     commands:
-      - npm test -- --coverage -u
+      - npm run build
+  post_build:
+    commands:
+      - aws s3 sync --delete ./build/ "s3://${WEBSITE_BUCKET_NAME}"
+      - aws s3 cp --cache-control 'max-age=0' ./build/index.html "s3://${WEBSITE_BUCKET_NAME}"
 artifacts:
   files:
     - '**/*'
