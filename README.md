@@ -1,3 +1,5 @@
+![Build status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiK2F5bjZ0N1BQUk1Wdm8wdnJuUEg5UVFNeWR5ZnZmdmlsbS9zdkh3Mm9nTStjbTlnbHk5TUo0Q0tNWllEd3J2U2MyMFRRWFRmVFN0eFNPcThhR0QzaEJvPSIsIml2UGFyYW1ldGVyU3BlYyI6InpRTDJROWsxVjlXYWZzdG4iLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
