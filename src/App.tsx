@@ -6,7 +6,7 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">
         Este es tu lugar!
-        Esperalo!
+        Espéralo!
       </header>
     </div>
   );
