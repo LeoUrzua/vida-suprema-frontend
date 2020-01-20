@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import Home from './pages/Home';
 import Goals from './pages/Goals';
+import Secret from './pages/Secret';
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,9 @@ const App: React.FC = () => {
             <li>
               <Link to="/goals">Goals</Link>
             </li>
+            <li>
+              <Link to="/secret-page">SecretPage</Link>
+            </li>
           </ul>
         </nav>
 
@@ -29,6 +33,9 @@ const App: React.FC = () => {
         <Switch>
           <Route path="/goals">
             <Goals />
+          </Route>
+          <Route path="/secret-page">
+            <Secret />
           </Route>
           <Route path="/">
             <Home />

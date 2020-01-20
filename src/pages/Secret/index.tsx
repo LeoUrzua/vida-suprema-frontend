@@ -1,14 +1,13 @@
 import React from 'react';
 import SecretComponent from '../../components/Secret-Component';
 
-const Home: React.FC = () => {
+const Secret: React.FC = () => {
   return (
     <div>
-      Home page
-
+      Secret page
       <SecretComponent></SecretComponent>
     </div>
   );
 }
 
-export default Home;
+export default Secret;
