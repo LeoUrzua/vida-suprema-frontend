@@ -4,37 +4,29 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from 'react-router-dom';
 import Home from './pages/Home';
 import Goals from './pages/Goals';
+import ButtonAppBar from './components/ButtonAppBar';
+import GoalsForm from './components/GoalsForm';
 
 const App: React.FC = () => {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/goals">Goals</Link>
-            </li>
-          </ul>
-        </nav>
-
+        <ButtonAppBar />
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/goals">
             <Goals />
           </Route>
+            <Route path="/goals/add">
+                <GoalsForm/>
+            </Route>
           <Route path="/">
             <Home />
           </Route>
         </Switch>
-      </div>
     </Router>
   );
 }
