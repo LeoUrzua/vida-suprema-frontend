@@ -1,6 +1,6 @@
 /* eslint no-use-before-define: 0 */  // --> OFF
 import React, {createContext, useContext} from 'react';
-import {Voter} from '@wizeline/access-decision-manager/lib';
+import AccessDecisionManager, {Voter} from '@wizeline/access-decision-manager/lib';
 
 
 type ADMContextType = {
@@ -16,7 +16,8 @@ const admContext = createContext<ADMContextType>({
 
 // @ts-ignore
 export const ProvideADM = ({voters, children}) => {
-    const adm = useProvideADM(voters);
+    const accessDecisionManager = new AccessDecisionManager(null, voters, null);
+    const adm = useProvideADM(accessDecisionManager);
     return <admContext.Provider value={adm}>{children}</admContext.Provider>
 };
 
@@ -24,10 +25,11 @@ export const useADM = () => {
     return useContext(admContext);
 };
 
-const useProvideADM = (voters: Voter[]) => {
+const useProvideADM = (accessDecisionManager: AccessDecisionManager) => {
 
     const isGranted = (attribute:any, subject:any) => {
-        // console.log('params', voters, attribute, subject)
+        const isGranted = accessDecisionManager.isGranted(attribute, subject);
+        console.log('result: ', isGranted);
         return false;
     };
 
