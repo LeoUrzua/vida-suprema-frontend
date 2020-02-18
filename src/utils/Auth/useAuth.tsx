@@ -6,13 +6,13 @@ import "firebase/auth";
 
 // Add your Firebase credentials
 firebase.initializeApp({
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: "",
-    appId: ""
+    apiKey: "AIzaSyBMh7c88I5KJtQioApoQkrQg1pvNyxXGGw",
+    authDomain: "vidasuprema-49d39.firebaseapp.com",
+    databaseURL: "https://vidasuprema-49d39.firebaseio.com",
+    projectId: "vidasuprema-49d39",
+    storageBucket: "vidasuprema-49d39.appspot.com",
+    messagingSenderId: "685294723356",
+    appId: "1:685294723356:web:cb0da13ace9624ec829ad9"
 });
 
 const authContext = createContext({

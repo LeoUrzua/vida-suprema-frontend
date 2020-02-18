@@ -11,11 +11,12 @@ import ButtonAppBar from './components/ButtonAppBar';
 import GoalsForm from './components/GoalsForm';
 import {ProvideAuth as ProvideUser} from './utils/Auth/useAuth';
 import {ProvideADM} from './utils/access-decision-manager-react/src/access-decision-manager-provider';
+import voters from './utils/voters'
 
 const App: React.FC = () => {
   return (
       <ProvideUser>
-          <ProvideADM>
+          <ProvideADM voters={voters({})}>
               <Router>
                   <ButtonAppBar />
                   {/* A <Switch> looks through its children <Route>s and

@@ -10,7 +10,7 @@ const SecretComponent: React.FC = () => {
     return(
         <div>
             <h1>Super secret</h1>
-            { authz.isGranted() &&
+            { authz.isGranted('EDIT_POST', 'postID') &&
             <p>some secrets</p>
             }
         </div>
