@@ -1,36 +1,37 @@
 import React, {createContext, useContext} from 'react';
-import AccessDecisionManager, {Voter} from '@wizeline/access-decision-manager/lib';
+import AccessDecisionManager, {Voter} from '@wizeline/access-decision-manager';
 
 
-type ADMContextType = {
-    isGranted: (attribute: string, subject: any)=> Promise<Boolean>;
+type AccessDecisionManagerContextType = {
+    useIsGranted: (attribute: string, subject: any)=> Promise<Boolean>;
 }
 
-const admContext = createContext<ADMContextType>({
-    isGranted(){
-        return Promise.resolve(false);
+const accessDecisionManagerContext = createContext<AccessDecisionManagerContextType>({
+    useIsGranted(){
+      return Promise.resolve(false);
     }
     }
 );
 
-export const ProvideADM = ({voters, children}: {voters: Voter[], children: any}) => {
+export const AccessDecisionManagerProvider = ({voters, children}: {voters: Voter[], children: any}) => {
     const accessDecisionManager = new AccessDecisionManager(null, voters, null);
-    const adm = useProvideADM(accessDecisionManager);
-    return <admContext.Provider value={adm}>{children}</admContext.Provider>
+    const value = useAccessDecisionManagerProvider(accessDecisionManager);
+
+    return <accessDecisionManagerContext.Provider value={value}>{children}</accessDecisionManagerContext.Provider>
 };
 
-export const useADM = () => {
-    return useContext(admContext);
+export const useAccessDecisionManager = () => {
+    return useContext(accessDecisionManagerContext);
 };
 
-const useProvideADM = (accessDecisionManager: AccessDecisionManager) => {
+const useAccessDecisionManagerProvider = (accessDecisionManager: AccessDecisionManager) => {
 
-    const isGranted = async (attribute:any, subject:any) : Promise<Boolean> => {
+    const useIsGranted = async (attribute:any, subject:any) : Promise<Boolean> => {
         const isGranted = await accessDecisionManager.isGranted(attribute, subject);
-        return isGranted;
+        return Promise.resolve(isGranted);
     };
 
     return {
-        isGranted
+        useIsGranted
     }
 };
