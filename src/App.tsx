@@ -14,9 +14,13 @@ import {AccessDecisionManagerProvider} from './utils/access-decision-manager-rea
 import voters from './utils/voters'
 
 const App: React.FC = () => {
+    const user = {
+        id: 1,
+        email: 'john@email.com'
+    };
   return (
       <ProvideUser>
-          <AccessDecisionManagerProvider voters={voters({})}>
+          <AccessDecisionManagerProvider user={user} voters={voters({})}>
               <Router>
                   <ButtonAppBar />
                   {/* A <Switch> looks through its children <Route>s and

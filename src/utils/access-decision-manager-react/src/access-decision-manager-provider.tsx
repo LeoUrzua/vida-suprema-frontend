@@ -13,8 +13,8 @@ const accessDecisionManagerContext = createContext<AccessDecisionManagerContextT
     }
 );
 
-export const AccessDecisionManagerProvider = ({voters, children}: {voters: Voter[], children: any}) => {
-    const accessDecisionManager = new AccessDecisionManager(null, voters, null);
+export const AccessDecisionManagerProvider = ({voters, children, user}: {voters: Voter[], children: any, user: any}) => {
+    const accessDecisionManager = new AccessDecisionManager(user, voters, null);
     const value = useAccessDecisionManagerProvider(accessDecisionManager);
 
     return <accessDecisionManagerContext.Provider value={value}>{children}</accessDecisionManagerContext.Provider>

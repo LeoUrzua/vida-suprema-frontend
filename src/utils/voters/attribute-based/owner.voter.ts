@@ -15,6 +15,7 @@ const postOwnerVoter = (
   const voteOnAttribute = (_attribute: any, subject: any, user: any): boolean => {
 
     console.log('hello from voter');
+    console.log('user', user);
     // here the subject of this voter is the post
     // if(!subject || !subject.authorId || !user || !user.userId){
     //   return false;
