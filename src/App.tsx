@@ -10,7 +10,7 @@ import Goals from './pages/Goals';
 import ButtonAppBar from './components/ButtonAppBar';
 import GoalsForm from './components/GoalsForm';
 import {ProvideAuth as ProvideUser} from './utils/Auth/useAuth';
-import {AccessDecisionManagerProvider} from './utils/access-decision-manager-react/src/access-decision-manager-provider';
+import AccessDecisionManagerProvider from './utils/access-decision-manager-react/src/access-decision-manager-provider';
 import voters from './utils/voters'
 
 const App: React.FC = () => {
