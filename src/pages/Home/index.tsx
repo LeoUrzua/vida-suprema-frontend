@@ -1,10 +1,11 @@
 import React from 'react';
-import ButtonAppBar from '../../components/ButtonAppBar';
+import SecretComponent from '../../components/SecretComponent';
 
 const Home: React.FC = () => {
   return (
     <div>
-        <h1>Home</h1>
+        <SecretComponent/>
+
     </div>
   );
 }
