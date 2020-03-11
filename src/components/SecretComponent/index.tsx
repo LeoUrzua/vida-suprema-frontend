@@ -10,9 +10,8 @@ const SecretComponent: React.FC =  () => {
         <div>
             <h1>Super secret</h1>
             <h1>{JSON.stringify(canEdit)}</h1>
-            {/*<h1>Value: <p>{userCanSee}</p></h1>*/}
             {
-                canEdit &&
+                canEdit.isGranted &&
                     <h1>Content</h1>
             }
         </div>
