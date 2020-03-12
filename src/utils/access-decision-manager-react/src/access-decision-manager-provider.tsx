@@ -2,15 +2,30 @@ import React, {createContext} from 'react';
 import AccessDecisionManager, {Voter} from '@wizeline/access-decision-manager';
 
 interface AccessDecisionManagerContextType {
-    accessDecisionManager: AccessDecisionManager;
+  accessDecisionManager: AccessDecisionManager;
 }
 
-export const accessDecisionManagerContext = createContext<any>({});
+export const accessDecisionManagerContext = createContext<AccessDecisionManagerContextType>({
+  accessDecisionManager: new AccessDecisionManager({}, [], null)
+});
 
-const AccessDecisionManagerProvider = ({voters, children, user}: {voters: Voter[], children: any, user: any}) => {
-    const accessDecisionManager = new AccessDecisionManager(user, voters, null);
+// eslint-disable-next-line no-shadow
+const AccessDecisionManagerProvider = ({children, user, createContext, voters,}: {
+  children: any,
+  createContext?: any
+  user: any,
+  voters: Voter[],
+}) => {
+  const context =
+    typeof createContext === 'function'
+  ? createContext() : null;
 
-    return <accessDecisionManagerContext.Provider value={accessDecisionManager}>{children}</accessDecisionManagerContext.Provider>
+  const accessDecisionManager = new AccessDecisionManager(user, voters, context);
+  const value = {
+    accessDecisionManager
+  };
+
+  return <accessDecisionManagerContext.Provider value={value}>{children}</accessDecisionManagerContext.Provider>
 };
 
 export default AccessDecisionManagerProvider;

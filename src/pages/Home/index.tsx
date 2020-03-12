@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import SecretComponent from '../../components/SecretComponent';
 
 const Home: React.FC = () => {
+    const [attribute, setAttribute] = useState('INVALID');
   return (
     <div>
-        <SecretComponent/>
+        <SecretComponent attribute={attribute} setAttribute={setAttribute}></SecretComponent>
 
     </div>
   );
