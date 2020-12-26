@@ -5,6 +5,7 @@ const Home: React.FC = () => {
     const [attribute, setAttribute] = useState('INVALID');
   return (
     <div>
+          <h1>This is just a Test</h1>  
         <SecretComponent attribute={attribute} setAttribute={setAttribute}></SecretComponent>
 
     </div>
