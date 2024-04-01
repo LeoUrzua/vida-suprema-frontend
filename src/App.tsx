@@ -9,7 +9,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
           <img src="/greetings.jpeg" className="App-logo" alt="greetings" />
         <p>
-          This is signal
+          This is signal!
         </p>
       </header>
     </div>
